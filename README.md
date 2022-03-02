@@ -19,4 +19,5 @@ AWS microservices utilized include:
 ## Chatbot window:
 <img width="678" alt="image" src="https://user-images.githubusercontent.com/34758484/156451729-4c898e7d-b345-4fe1-b602-1c98707e8a19.png">
 
+<img width="679" alt="image" src="https://user-images.githubusercontent.com/34758484/156452436-7a635674-ef8b-4250-a29b-8346ce493c6f.png">
 
