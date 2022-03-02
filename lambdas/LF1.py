@@ -177,11 +177,12 @@ def validate_intent(cuisine, location, dining_time, dining_date, number_of_peopl
     if cuisine is not None and cuisine.lower() not in cuisine_types:
         return build_validation_result(False,
                                        'cuisine',
-                                       'We do not currently track {} restaurants, ' \
-                                       'would you like a different type of cuisine? ' \
-                                       'We currently offer suggestions for '.format(cuisine, 'cafe, bar, sushi, pizza, indian, thai, italian, french, chinese, mexican'))
+                                       'We do not currently track {} cuisine. We provide suggestions ' \
+                                       'for the following cuisine types: cafe, bar, sushi, pizza, indian, ' \
+                                       'thai, italian, french, chinese, and mexican - would you like a different ' \
+                                       'type of cuisine?'.format(cuisine))
                                    
-    if location is not None and location.lower() not in ['new york', 'manhattan', 'brooklyn', 'bronx']:
+    if location is not None and location.lower() not in ['new york', 'manhattan', 'brooklyn', 'bronx', 'staten island', 'queens']:
         return build_validation_result(False,
                                        'location',
                                        'We currently only provide restaurant suggestions in New York. Please enter New York')
@@ -197,6 +198,12 @@ def validate_intent(cuisine, location, dining_time, dining_date, number_of_peopl
         if math.isnan(hour) or math.isnan(minute):
             # Not a valid time; use a prompt defined on the build-time model.
             return build_validation_result(False, 'dining_time', 'Please enter a valid dining time')
+
+        if hour < 8 or hour > 21:
+            # Outside of business hours
+            return build_validation_result(False, 'dining_time', 'We only provide suggestions for restaurants ' \
+                                                                 'between 8:00 AM and 10:00 PM. Can you please ' \
+                                                                 'specify a time within this range?')
 
     if dining_date is not None:
         if datetime.datetime.strptime(dining_date, '%Y-%m-%d').date() < datetime.date.today():
@@ -290,7 +297,7 @@ def thank_you_intent():
             "type": "ElicitIntent",
             'message': {
                 'contentType': 'PlainText',
-                'content': 'Welcome!'}
+                'content': 'You\'re welcome!'}
         }
     }
 
