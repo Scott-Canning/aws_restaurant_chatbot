@@ -28,7 +28,7 @@ def convert_date(date):
 def receive_queue_messages():
     
     sqs = boto3.client('sqs')
-    queue_url = 'https://queue.amazonaws.com/472171587515/LexMessageQueue' 
+    queue_url = 'https://queue.amazonaws.com/<Account-ID>/<SQS-Name>'
 
     try:
         response = sqs.receive_message(
@@ -56,7 +56,7 @@ def open_search_recommendations(cuisine):
     credentials = boto3.Session().get_credentials()
 
     # build search path
-    host = 'https://search-os-restaurants-zyfc3s5yza7p57g6hpnflnqzlu.us-east-1.es.amazonaws.com' 
+    host = '<OpenSearch-host-url>' 
     path = '/restaurant/_search'
     url = host + path
     headers = { "Content-Type": "application/json" }
@@ -172,7 +172,7 @@ def send_ses(message, email_address):
 def delete_sqs(receipt_handle):
     
     sqs = boto3.client('sqs')
-    sqs.delete_message(QueueUrl='https://queue.amazonaws.com/472171587515/LexMessageQueue',
+    sqs.delete_message(QueueUrl='https://queue.amazonaws.com/<Account-ID>/<SQS-Name>',
                        ReceiptHandle=receipt_handle
                       )
 
