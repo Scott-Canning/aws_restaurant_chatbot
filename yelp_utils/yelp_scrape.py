@@ -7,7 +7,7 @@ import time
 
 YELP_API_KEY = ''
 QUERY_LIMIT = 50
-ZIP_CODE = "11501"
+ZIP_CODE = "<Target-Zip-Code>"
 
 class Yelp_Search:
 
