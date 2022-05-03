@@ -22,4 +22,4 @@ AWS microservices utilized include:
 <img width="679" alt="image" src="https://user-images.githubusercontent.com/34758484/156452436-7a635674-ef8b-4250-a29b-8346ce493c6f.png">
 
 ## Chatbot email response:
-<img width="614" alt="image" src="https://user-images.githubusercontent.com/34758484/156453139-775094ed-6852-4867-9e12-5ccb6da70b02.png">
+<img width="680" alt="image" src="https://user-images.githubusercontent.com/34758484/166483621-da4d12b2-1464-4eff-886c-7e0f885ad0f4.png">
