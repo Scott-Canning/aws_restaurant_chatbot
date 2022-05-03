@@ -131,7 +131,7 @@ def enque(slots):
     sqs = boto3.client('sqs')
 
     try:
-        queue_url = 'https://queue.amazonaws.com/472171587515/LexMessageQueue' 
+        queue_url = 'https://queue.amazonaws.com/<Account-ID>/<SQS-Name>' 
         response = sqs.send_message(
                                    QueueUrl=queue_url,
                                    MessageBody=data,
