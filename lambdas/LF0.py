@@ -6,8 +6,8 @@ def lambda_handler(event, context):
     
     # post text to lex
     response = client.post_text(
-                                botName='RestaurantLexBot',
-                                botAlias='production',
+                                botName='<bot-name>',
+                                botAlias='<bot-alias>',
                                 userId="12",
                                 inputText=event["messages"][0]["unstructured"]["text"]
                                 )
